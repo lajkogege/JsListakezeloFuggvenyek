@@ -46,3 +46,10 @@ adatLISTA.sort(function(e1, e2){
 })
 
 console.log(adatLISTA);
+
+//véletlen sorrend rendezés, kor szerint
+adatLISTA.sort(function(e1,e2){
+    //véletlen számot generálok -0.5 és +0.5 között
+    return Math.random()-0.5
+})
+console.log(adatLISTA)
