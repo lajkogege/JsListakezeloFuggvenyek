@@ -1,0 +1,6 @@
+Admin felület--> űrlap
+Vásárlói felület, táblázat
+szg nézet 1440px
+tablet nézet 1200px
+mobilnézet 440px
+Admin weblapra nem kell mobilnézet
