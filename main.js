@@ -1,55 +1,31 @@
 import {adatLISTA} from "./adat.js";
 
-for (let index = 0; index < adatLISTA.length; index++) {
-    const element = adatLISTA[index];
-    console.log(element);
-    
-}
 
-adatLISTA.forEach(function(element,index){
-    console.log(element)
-    console.log(index)
-})
 
-/*szürjünk a férfiakra*/
-const FERFIAK=adatLISTA.filter(function(ember)
-{
-    return !ember.nem; //ez a vissza térési érték mindig logikai változó! true vag false
-})
+/*jelenítsük meg az adatainkat egy tábéázatban az adatok divben,
+    az urlap divben pedig legyen egy űrlap, amivel ilyen adatokat tudunk a táblázatba beletenni.
 
-const FERFIAK2=adatLISTA.filter((ember)=> //ez u.a mint az elöző csak nyilal
-{
-    return !ember.nem; //ez a vissza térési érték mindig logikai változó! true vag false
-})
+1. ha a táblázat fejlécére kattuntnuk, akko razon mező szerint tudjuk rendezni a táblázatot
+2. tudjuk törölni az adott sorát
+3. legyen egy szűrő mező, ahova beírva szavakat tudunk szűrni név szerint. 
 
-console.log(FERFIAK);
+Milyen füfggvények kellenek?
+1. tablazatOsszeallít(lista)->txt - összeállítja a html kódot szöveges formátumban, minden sor végén legyen egy kuka
+2. megjelenites(txt)->nincs - megjeleníti a html szöveget egy html elemben
+3. tablazatbaTesz(lista) - összeszedi az űrlapadatokat és hozzáfűzi a listához, majd megjelníti újra a táblázatot.
+    Akkor hívódik meg ha a hozzáad gombra kattintunk.
+4. tablazatRendez(lista) - adott mező szerint rendezi a táblázatot. akkor hívódik meg, ha a táblázat név fejlécmezőjére kattintunk.
+    berendezzük a listá é smegjelenítjük újra a táblázatot.
+5. sorTorles(lista, index) - minden sor végén legyen egy kuka a sor indexével, erre kattintva töröljük az adott sort a listából, 
+    és újra megjelenítjük a táblázatot a módosult listával.
+6. szuresNevSzerint(lista, szurtSzoveg)->szurtLista - a szürőbe írt szó alapján kilistázza azoakt az adatokat a listából, 
+    amelyekben szerepel a név mezőjében az adott szó. Ezután  megjelenítjük a szűrt listát az oldalon.
+    Akkor fog lefutni, amikor megváltozik a szűrőmező tartalma
+*/
 
-//azkat az embereket szeretném, akik 20 évnél fiatalabbak
-const FIATALOK=adatLISTA.filter(function(ember){
-    return ember.kor<20;
-}
-)
 
-console.log(FIATALOK);
 
-//10 évnél idősebb férfiak
-const FERFIAK10FELETT = adatLISTA.filter((ember)=>{
-    return ember.kor>10 && ember.nem===false
-})
 
-console.log(FERFIAK10FELETT);
 
-//RENDEZÉS
-/*rendezzük forditott sorrendben kor szerint az embereinket */
-adatLISTA.sort(function(e1, e2){
-    return e2.kor-e1.kor;
-})
 
-console.log(adatLISTA);
 
-//véletlen sorrend rendezés, kor szerint
-adatLISTA.sort(function(e1,e2){
-    //véletlen számot generálok -0.5 és +0.5 között
-    return Math.random()-0.5
-})
-console.log(adatLISTA)
