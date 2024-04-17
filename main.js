@@ -1,4 +1,5 @@
 import { emberekLISTA } from "./adat.js";
+import { megjelenites, tablazatOsszeallit } from "./fugvenyek.js";
 /*  jelenítsük meg az adatainkat egy táblázatban az adatok div-ben
 az urlap div-ben legyen egy űrlap, amivel ilyen adatokat tudunk a táblázatba beletenni
 
@@ -19,3 +20,6 @@ Ezután megjelenítjük a szűrt listát az oldalon.
 Akkor fog lefutni, amikor megváltozik a szűrőmező tartalma 
  
  */
+
+let txt=tablazatOsszeallit(emberekLISTA)
+megjelenites(txt)
