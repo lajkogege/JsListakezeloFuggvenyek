@@ -21,12 +21,14 @@ Ezután megjelenítjük a szűrt listát az oldalon.
 Akkor fog lefutni, amikor megváltozik a szűrőmező tartalma 
  
  */
+let nevIrany=1;
 init(emberekLISTA);
+
 
 function init(lista){
     let txt=tablazatOsszeallit(emberekLISTA)
     megjelenites(txt);
-    nevRendezEsemeny();
+    nevRendezEsemeny(lista);
 }
 
 
@@ -35,10 +37,11 @@ function nevRendezEsemeny(lista){
 /*akkor hívódik meg, ha a táblázat név fejlécmezőjére kattintunk, akkor berendezzük a listát, és megjelenítjük újra a táblázatot. */
 const nevELEM=$(".adatok th").eq(0) /*elő fejléc th elem*/
 nevELEM.on("click", function(){
-    const LISTA=tablazatRendez(emberekLISTA);
-    console.log(LISTA)
+    const LISTA=tablazatRendez(emberekLISTA,nevIrany);
     let txt= tablazatOsszeallit(emberekLISTA);
     console.log(LISTA)
+    nevIrany*=(-1);
+    console.log(nevIrany)
    init(LISTA);
 });
 }
