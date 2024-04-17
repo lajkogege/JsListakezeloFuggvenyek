@@ -11,7 +11,7 @@ export const emberekLISTA=[
         nem:false
     },
     {
-        nev:"Ádám",
+        nev:"Zsolt",
         kor:78,
         nem:false
     },

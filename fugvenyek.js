@@ -7,7 +7,7 @@ export function tablazatOsszeallit(lista){
     lista.forEach(element => {
         txt+=`<tr>`;
         for (const key in element) {//objektumon tud végig iterálni
-            console.log("key: ",key, "akt.elem: ", element[key]);
+            //console.log("key: ",key, "akt.elem: ", element[key]);
             txt+=`<td>${element[key]}</td> ` 
             
         }
@@ -22,6 +22,6 @@ export function tablazatOsszeallit(lista){
 export function megjelenites(txt){
     /*2. megjelenites(txt)->nincs - megjelníti egy html szoveget egy html elemben*/
     const adatokELEM=$(".adatok");//megfogom a html elemet
-    adatokELEM.append(txt);
+    adatokELEM.html(txt);
 }
 
