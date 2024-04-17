@@ -4,14 +4,14 @@ export function tablazatOsszeallit(lista){
     let txt="";
     txt+="<table class='table table-striped'>";
     txt+="<tr> <th>Név</th> <th>Kor</th> <th>Nem</th> <th></th> </tr>";
-    lista.forEach(element => {
+    lista.forEach((element,i) => {
         txt+=`<tr>`;
         for (const key in element) {//objektumon tud végig iterálni
             //console.log("key: ",key, "akt.elem: ", element[key]);
             txt+=`<td>${element[key]}</td> ` 
             
         }
-        txt+=`<td>🦄</td>
+        txt+=`<td id="${i}" class="kuka">🦄</td>
             </tr>`;
        
     });

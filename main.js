@@ -1,5 +1,5 @@
 import { emberekLISTA } from "./adat.js";
-import { tablazatRendez } from "./adatKezelo.js";
+import { szuresNevSzerint, tablazatRendez } from "./adatKezelo.js";
 import { megjelenites, tablazatOsszeallit } from "./fugvenyek.js";
 /*  jelenítsük meg az adatainkat egy táblázatban az adatok div-ben
 az urlap div-ben legyen egy űrlap, amivel ilyen adatokat tudunk a táblázatba beletenni
@@ -23,12 +23,14 @@ Akkor fog lefutni, amikor megváltozik a szűrőmező tartalma
  */
 let nevIrany=1;
 init(emberekLISTA);
+nevSzuresEsemeny();
 
 
 function init(lista){
     let txt=tablazatOsszeallit(emberekLISTA)
     megjelenites(txt);
     nevRendezEsemeny(lista);
+    sorTorlesEsemeny();
 }
 
 
@@ -46,3 +48,23 @@ nevELEM.on("click", function(){
 });
 }
 
+function nevSzuresEsemeny(lista){
+const szuroELEM=$("#szNev")
+szuroELEM.on("keyup", function(){
+    let szuroSzoveg=szuroELEM.val()
+    const LISTA=szuresNevSzerint(emberekLISTA,szuroSzoveg)
+    init(LISTA)
+})
+}
+//console.log(szuresNevSzerint(emberekLISTA, "Á"));
+
+function sorTorlesEsemeny(){
+    /*5. sorTorles(lista, index) - minden sor végén legyen egy kuka, a sor indexével,
+     erre a kukára kattintva töröljük az adott sort a listából, és újra megjelenítjük a táblázatot a módosult listával.  */
+     const kukaELEM=$(".kuka");
+     kukaELEM.on("click", function(event){
+        let index =event.target.id; /*az aktuális kuka indexe*/
+        const LISTA=sorTorles(emberekLISTA,index);
+        init(LISTA);
+     })
+}
